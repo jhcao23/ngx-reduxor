@@ -1,9 +1,0 @@
-{
-    "src": {
-        "tagName": "v%s"
-    },
-    "github": {
-        "release": true,
-        "tokenRef": "GITHUB_TOKEN"
-    }
-}

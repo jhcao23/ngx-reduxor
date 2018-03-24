@@ -1,3 +1,15 @@
+## This is a folk repository from [ngx-reduxor](https://github.com/kmathy/ngx-reduxor)
+I am trying to make it customizable for myself and more developers. But not sure if I have enough time to do this.
+
+## How to run your own ngx-reduxor locally
+- Obviously you will know download your folk repo by `git clone`
+- `rm -rf .npmignore .release-it.json yarn.lock` as I only use `yarn` not `npm`
+- `yarn install` then `yarn link` so that you can invoke your own `ngx-reduxor` anywhere in your laptop then its done.
+
+## MANUAL CHANGES NEEDED:
+- update URLs in `url.constants.ts` accordingly
+
+
 <p align="center">
   <img src="https://img.shields.io/npm/dt/ngx-reduxor.svg">
   <img src="https://img.shields.io/npm/dm/ngx-reduxor.svg">
