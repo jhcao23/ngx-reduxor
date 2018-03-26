@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ArrayPayloadableWithCode, PayloadableAction, PayloadableWithCode } from '../store.action';
 
 /**
  * Generate constants based on the given name
@@ -7,6 +8,10 @@ import { HttpErrorResponse } from '@angular/common/http';
  */
 
 {{#ifIn 'GET' entityMethods }}
+export const GET_{{ constantCase name }} =                 '[{{ properCase name }}] Get {{ properCase name }}';
+export const GET_{{ constantCase name }}_SUCCESS = '[{{ properCase name }}] Get {{ properCase name }} Success';
+export const GET_{{ constantCase name }}_FAIL = '[{{ properCase name }}] Get {{ properCase name }} Fail';
+
 export const LOAD_{{ constantCase plural }} =                 '[{{ properCase plural }}] Load {{ properCase plural }}';
 export const LOAD_{{ constantCase plural }}_SUCCESS =         '[{{ properCase plural }}] Load {{ properCase plural }} Success';
 export const LOAD_{{ constantCase plural }}_FAIL =            '[{{ properCase plural }}] Load {{ properCase plural }} Fail';
@@ -62,17 +67,39 @@ export const CLEAR_{{ constantCase plural }} =              '[{{ properCase plur
 export class Load{{ properCase plural }}Action implements Action {
   readonly type = LOAD_{{ constantCase plural }};
 
-  constructor(public payload = '') { }
+  // constructor(public payload = '') { }
 }
 
-export class Load{{ properCase plural }}SuccessAction implements Action {
+export class Load{{ properCase plural }}SuccessAction implements PayloadableAction<{{ properCase }}[]> {
   readonly type = LOAD_{{ constantCase plural }}_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase }}[]) { }
 }
 
 export class Load{{ properCase plural }}FailAction implements Action {
   readonly type = LOAD_{{ constantCase plural }}_FAIL;
+
+  constructor(public error: HttpErrorResponse) { }
+}
+
+/**
+ * Get {{ properCase }} Actions
+ * e.g GetUserAction
+ */
+export class Get{{ properCase name }}Action implements PayloadableAction<string> {
+  readonly type = GET_{{ constantCase name }};
+
+  constructor(public payload: string) { } //payload is code
+}
+
+export class Get{{ properCase name }}SuccessAction implements PayloadableAction<{{ properCase }}> {
+  readonly type = GET_{{ constantCase name }}_SUCCESS;
+
+  constructor(public payload: {{ properCase name }}) { }
+}
+
+export class Get{{ properCase name }}FailAction implements Action {
+  readonly type = GET_{{ constantCase name }}_FAIL;
 
   constructor(public error: HttpErrorResponse) { }
 }

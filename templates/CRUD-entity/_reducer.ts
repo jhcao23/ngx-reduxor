@@ -3,12 +3,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { createEntityAdapter, EntityState, EntityAdapter } from '@ngrx/entity';
 
-export interface {{ properCase name }} { // Or you can replace it by importing your own model
-  id: number;
-}
+import {generalSelectId} from '../store.reducer';
+import {UniqueCode} from '../store.model';
+import { {{ properCase name }} } from '../{{ camelCase name }}.model.ts'
 
 export const {{ camelCase name }}Adapter: EntityAdapter<{{ properCase name }}> = createEntityAdapter<{{ properCase name }}>({
-  sortComparer: false
+    sortComparer: false,
+    selectId: generalSelectId
 });
 // tslint:disable-next-line:no-empty-interface
 export interface {{ properCase name }}State extends EntityState<{{ properCase name }}> {
@@ -172,7 +173,7 @@ export function reducer(state = initial{{ properCase name }}State, action: {{ ca
         error: action.error
       };
 
-    {{/ifIn}}  
+    {{/ifIn}}
     {{#ifIn 'DELETE_MANY' entityMethods }}
     case {{ camelCase name }}.DELETE_{{ constantCase plural }}:
       return {
