@@ -21,7 +21,7 @@ export class {{ properCase name }}Effects {
 
   constructor(
     private {{ camelCase name }}Service: {{ properCase name }}Service,
-    private actions$: Actions
+    private actions$: Actions<{{ camelCase name }}Actions.Actions>
   ) {
     {{#ifIn 'GET' entityMethods }}
     this.load{{ properCase plural }}$ = this.actions$
