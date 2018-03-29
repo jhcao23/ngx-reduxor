@@ -26,7 +26,7 @@ export class {{ properCase name }}Effects {
     {{#ifIn 'GET' entityMethods }}
     this.load{{ properCase plural }}$ = this.actions$
       .ofType({{ camelCase name }}Actions.LOAD_{{ constantCase plural }})
-      .pipe(switchMap((state: {{ camelCase name }}Actions.Load{{ properCase plural }}Action) =>
+      .pipe(switchMap((action: {{ camelCase name }}Actions.Load{{ properCase plural }}Action) =>
         this.{{ camelCase name }}Service.load{{ properCase plural }}().pipe(
           // If successful, dispatch success action with result
           map(res => new {{ camelCase name }}Actions.Load{{ properCase plural }}SuccessAction(res)),
@@ -39,8 +39,8 @@ export class {{ properCase name }}Effects {
     {{#ifIn 'CREATE' entityMethods }}
     this.add{{ properCase name }}$ = this.actions$
       .ofType({{ camelCase name }}Actions.ADD_{{ constantCase name }})
-      .pipe(switchMap((state: {{ camelCase name }}Actions.Add{{ properCase name }}Action) =>
-        this.{{ camelCase name}}Service.add{{ properCase name }}(state.payload).pipe(
+      .pipe(switchMap((action: {{ camelCase name }}Actions.Add{{ properCase name }}Action) =>
+        this.{{ camelCase name}}Service.add{{ properCase name }}(action.payload).pipe(
           map(res => new {{ camelCase name }}Actions.Add{{ properCase name }}SuccessAction(res)),
           catchError((err: HttpErrorResponse) => observableOf(new {{ camelCase name }}Actions.Add{{ properCase name }}FailAction(err)))
         )
@@ -50,8 +50,8 @@ export class {{ properCase name }}Effects {
     {{#ifIn 'CREATE_MANY' entityMethods }}
     this.add{{ properCase plural }}$ = this.actions$
       .ofType({{ camelCase name }}Actions.ADD_{{ constantCase plural }})
-      .pipe(switchMap((state: {{ camelCase name }}Actions.Add{{ properCase plural }}Action) =>
-        this.{{ camelCase name}}Service.add{{ properCase plural }}(state.payload).pipe(
+      .pipe(switchMap((action: {{ camelCase name }}Actions.Add{{ properCase plural }}Action) =>
+        this.{{ camelCase name}}Service.add{{ properCase plural }}(action.payload).pipe(
           map(res => new {{ camelCase name }}Actions.Add{{ properCase plural }}SuccessAction(res)),
           catchError((err: HttpErrorResponse) => observableOf(new {{ camelCase name }}Actions.Add{{ properCase plural }}FailAction(err)))
         )
@@ -61,8 +61,8 @@ export class {{ properCase name }}Effects {
     {{#ifIn 'UPDATE' entityMethods }}
     this.update{{ properCase name }}$ = this.actions$
       .ofType({{ camelCase name }}Actions.UPDATE_{{ constantCase name }})
-      .pipe(switchMap((state: {{ camelCase name }}Actions.Update{{ properCase name }}Action) =>
-        this.{{ camelCase name }}Service.update{{ properCase name }}(state.payload).pipe(
+      .pipe(switchMap((action: {{ camelCase name }}Actions.Update{{ properCase name }}Action) =>
+        this.{{ camelCase name }}Service.update{{ properCase name }}(action.payload).pipe(
           map(res => new {{ camelCase name }}Actions.Update{{ properCase name }}SuccessAction(res)),
           catchError((err: HttpErrorResponse) => observableOf(new {{ camelCase name }}Actions.Update{{ properCase name }}FailAction(err)))
         )
@@ -72,8 +72,8 @@ export class {{ properCase name }}Effects {
     {{#ifIn 'UPDATE_MANY' entityMethods }}
     this.update{{ properCase plural }}$ = this.actions$
       .ofType({{ camelCase name }}Actions.UPDATE_{{ constantCase plural }})
-      .pipe(switchMap((state: {{ camelCase name }}Actions.Update{{ properCase plural }}Action) =>
-        this.{{ camelCase name }}Service.update{{ properCase plural }}(state.payload).pipe(
+      .pipe(switchMap((action: {{ camelCase name }}Actions.Update{{ properCase plural }}Action) =>
+        this.{{ camelCase name }}Service.update{{ properCase plural }}(action.payload).pipe(
           map(res => new {{ camelCase name }}Actions.Update{{ properCase plural }}SuccessAction(res)),
           catchError((err: HttpErrorResponse) => observableOf(new {{ camelCase name }}Actions.Update{{ properCase plural }}FailAction(err)))
         )
@@ -83,8 +83,8 @@ export class {{ properCase name }}Effects {
     {{#ifIn 'DELETE' entityMethods }}
     this.delete{{ properCase name }}$ = this.actions$
       .ofType({{ camelCase name }}Actions.DELETE_{{ constantCase name }})
-      .pipe(switchMap((state: {{ camelCase name }}Actions.Delete{{ properCase name }}Action) =>
-        this.{{ camelCase name }}Service.delete{{ properCase name }}(state.payload).pipe(
+      .pipe(switchMap((action: {{ camelCase name }}Actions.Delete{{ properCase name }}Action) =>
+        this.{{ camelCase name }}Service.delete{{ properCase name }}(action.payload).pipe(
           map(res => new {{ camelCase name }}Actions.Delete{{ properCase name }}SuccessAction(res)),
           catchError((err: HttpErrorResponse) => observableOf(new {{ camelCase name }}Actions.Delete{{ properCase name }}FailAction(err)))
         )
@@ -94,8 +94,8 @@ export class {{ properCase name }}Effects {
     {{#ifIn 'DELETE' entityMethods }}
     this.delete{{ properCase plural }}$ = this.actions$
       .ofType({{ camelCase name }}Actions.DELETE_{{ constantCase plural }})
-      .pipe(switchMap((state: {{ camelCase name }}Actions.Delete{{ properCase plural }}Action) =>
-        this.{{ camelCase name }}Service.delete{{ properCase plural }}(state.payload).pipe(
+      .pipe(switchMap((action: {{ camelCase name }}Actions.Delete{{ properCase plural }}Action) =>
+        this.{{ camelCase name }}Service.delete{{ properCase plural }}(action.payload).pipe(
           map(res => new {{ camelCase name }}Actions.Delete{{ properCase plural }}SuccessAction(res)),
           catchError((err: HttpErrorResponse) => observableOf(new {{ camelCase name }}Actions.Delete{{ properCase plural }}FailAction(err)))
         )
