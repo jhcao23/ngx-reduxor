@@ -4,8 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { createEntityAdapter, EntityState, EntityAdapter } from '@ngrx/entity';
 
 import {generalSelectId} from '../store.reducer';
-import {UniqueCode} from '../store.model';
-import { {{ properCase name }} } from '../{{ camelCase name }}.model.ts'
+import { {{ properCase name }} } from './{{ camelCase name }}.models';
 
 export const {{ camelCase name }}Adapter: EntityAdapter<{{ properCase name }}> = createEntityAdapter<{{ properCase name }}>({
     sortComparer: false,

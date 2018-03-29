@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ArrayPayloadableWithCode, PayloadableAction, PayloadableWithCode } from '../store.action';
+import { {{ properCase name }} } from './{{ camelCase name }}.models';
 
 /**
  * Generate constants based on the given name
@@ -70,10 +71,10 @@ export class Load{{ properCase plural }}Action implements Action {
   // constructor(public payload = '') { }
 }
 
-export class Load{{ properCase plural }}SuccessAction implements PayloadableAction<{{ properCase }}[]> {
+export class Load{{ properCase plural }}SuccessAction implements PayloadableAction<{{ properCase name }}[]> {
   readonly type = LOAD_{{ constantCase plural }}_SUCCESS;
 
-  constructor(public payload: {{ properCase }}[]) { }
+  constructor(public payload: {{ properCase name }}[]) { }
 }
 
 export class Load{{ properCase plural }}FailAction implements Action {
@@ -89,10 +90,10 @@ export class Load{{ properCase plural }}FailAction implements Action {
 export class Get{{ properCase name }}Action implements PayloadableAction<string> {
   readonly type = GET_{{ constantCase name }};
 
-  constructor(public payload: string) { } //payload is code
+  constructor(public payload: string) { } // payload is code
 }
 
-export class Get{{ properCase name }}SuccessAction implements PayloadableAction<{{ properCase }}> {
+export class Get{{ properCase name }}SuccessAction implements PayloadableAction<{{ properCase name }}> {
   readonly type = GET_{{ constantCase name }}_SUCCESS;
 
   constructor(public payload: {{ properCase name }}) { }
@@ -112,22 +113,23 @@ export class Get{{ properCase name }}FailAction implements Action {
 export class Select{{ properCase name }}Action implements Action {
   readonly type = SELECT_{{ constantCase name }};
   constructor(public {{ camelCase name }}ID: string | number) {}
+  // constructor(public code: string) {}
 }
 
 {{#ifIn 'CREATE' entityMethods }}
 /**
  * Add {{ properCase name }} Actions
  */
-export class Add{{ properCase name }}Action implements Action {
+export class Add{{ properCase name }}Action implements PayloadableAction<{{ properCase name }}> {
   readonly type = ADD_{{ constantCase name }};
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}) { }
 }
 
-export class Add{{ properCase name }}SuccessAction implements Action {
+export class Add{{ properCase name }}SuccessAction implements PayloadableAction<{{ properCase name }}> {
   readonly type = ADD_{{ constantCase name }}_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}) { }
 }
 
 export class Add{{ properCase name }}FailAction implements Action {
@@ -141,16 +143,16 @@ export class Add{{ properCase name }}FailAction implements Action {
 /**
  * Add {{ properCase plural }} Actions
  */
-export class Add{{ properCase plural }}Action implements Action {
+export class Add{{ properCase plural }}Action implements PayloadableAction<{{ properCase name }}[]> {
   readonly type = ADD_{{ constantCase plural }};
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}[]) { }
 }
 
-export class Add{{ properCase plural }}SuccessAction implements Action {
+export class Add{{ properCase plural }}SuccessAction implements PayloadableAction<{{ properCase name }}[]> {
   readonly type = ADD_{{ constantCase plural }}_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}[]) { }
 }
 
 export class Add{{ properCase plural }}FailAction implements Action {
@@ -164,16 +166,16 @@ export class Add{{ properCase plural }}FailAction implements Action {
 /**
  * Update {{ properCase name }} Actions
  */
-export class Update{{ properCase name }}Action implements Action {
+export class Update{{ properCase name }}Action implements PayloadableAction<{{ properCase name }}> {
   readonly type = UPDATE_{{ constantCase name }};
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}) { }
 }
 
-export class Update{{ properCase name }}SuccessAction implements Action {
+export class Update{{ properCase name }}SuccessAction implements PayloadableAction<{{ properCase name }}> {
   readonly type = UPDATE_{{ constantCase name }}_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}) { }
 }
 
 export class Update{{ properCase name }}FailAction implements Action {
@@ -187,16 +189,16 @@ export class Update{{ properCase name }}FailAction implements Action {
 /**
  * Update {{ properCase plural }} Actions
  */
-export class Update{{ properCase plural }}Action implements Action {
+export class Update{{ properCase plural }}Action implements PayloadableAction<{{ properCase name }}[]> {
   readonly type = UPDATE_{{ constantCase plural }};
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}[]) { }
 }
 
-export class Update{{ properCase plural }}SuccessAction implements Action {
+export class Update{{ properCase plural }}SuccessAction implements PayloadableAction<{{ properCase name }}[]> {
   readonly type = UPDATE_{{ constantCase plural }}_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: {{ properCase name }}[]) { }
 }
 
 export class Update{{ properCase plural }}FailAction implements Action {
@@ -210,16 +212,16 @@ export class Update{{ properCase plural }}FailAction implements Action {
 /**
  * Delete {{ properCase name }} Actions
  */
-export class Delete{{ properCase name }}Action implements Action {
+export class Delete{{ properCase name }}Action implements PayloadableAction<string> {
   readonly type = DELETE_{{ constantCase name }};
 
-  constructor(public payload: any) { }
+  constructor(public payload: string) { } // payload is code
 }
 
-export class Delete{{ properCase name }}SuccessAction implements Action {
+export class Delete{{ properCase name }}SuccessAction implements PayloadableAction<string> {
   readonly type = DELETE_{{ constantCase name }}_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: string) { } // payload is code
 }
 
 export class Delete{{ properCase name }}FailAction implements Action {
@@ -233,16 +235,16 @@ export class Delete{{ properCase name }}FailAction implements Action {
 /**
  * Delete {{ properCase plural }} Actions
  */
-export class Delete{{ properCase plural }}Action implements Action {
+export class Delete{{ properCase plural }}Action implements PayloadableAction<string[]> {
   readonly type = DELETE_{{ constantCase plural }};
 
-  constructor(public payload: any) { }
+  constructor(public payload: string[]) { } // payload is code[]
 }
 
-export class Delete{{ properCase plural }}SuccessAction implements Action {
+export class Delete{{ properCase plural }}SuccessAction implements PayloadableAction<string[]> {
   readonly type = DELETE_{{ constantCase plural }}_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: string[]) { } // payload is code[]
 }
 
 export class Delete{{ properCase plural }}FailAction implements Action {
@@ -256,10 +258,10 @@ export class Delete{{ properCase plural }}FailAction implements Action {
 /**
  * Clear {{ properCase plural }} Actions
  */
-export class Clear{{ properCase plural }}Action implements Action {
+export class Clear{{ properCase plural }}Action implements PayloadableAction<string[]> {
   readonly type = CLEAR_{{ constantCase plural }};
 
-  constructor(public payload: any) { }
+  constructor(public payload: string[]) { } // payload is code[]
 }
 
 {{/ifIn}}

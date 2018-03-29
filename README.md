@@ -1,5 +1,8 @@
 ## This is a folk repository from [ngx-reduxor](https://github.com/kmathy/ngx-reduxor)
-I am trying to make it customizable for myself and more developers. But not sure if I have enough time to do this.
+- I am trying to make it customizable for myself and more developers. But not sure if I have enough time to do this.
+- However, one of my fav style is to let client side hold `code` rather than `id` as the identity of entity.
+    So please forgive me if you don't like this style but you can 
+    easily replace all of them with your fav name such as id.
 
 ## How to run your own ngx-reduxor locally
 - Obviously you will know download your folk repo by `git clone`
