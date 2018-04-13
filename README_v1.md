@@ -4,7 +4,9 @@
 If you are a user of @ngrx libs, check this generator! This will help you to save time by creating an architecture for your ngrx files. 
 
 Initially created by @NetanelBasal (called ngrx-generator). After some times, 
-and using the recommendations of the community, the generator has been improved.
+and using the recommendations of the community, the generator has been improved
+by [kmathy](https://github.com/kmathy) and folked to a new project
+called [ngx-reduxor](https://github.com/kmathy/ngx-reduxor).
 
 Now, it has the following features:
 * Create Actions, reducers, effects and services in one command! Just provide a name and the generator will do the rest.

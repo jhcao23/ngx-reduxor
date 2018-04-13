@@ -1,7 +1,7 @@
 {
   "name": "ngx-reduxor",
-  "version": "3.4.1",
-  "description": "Angular+Redux: templates generator to scaffold easily and with consistency, all in a simple command",
+  "version": "3.0.0",
+  "description": "Angular+NGRX: templates generator to scaffold easily and with consistency, all in a simple command",
   "main": "index.js",
   "keywords": [
     "ngrx",
@@ -10,32 +10,32 @@
     "ngrx/store",
     "ngrx/effects"
   ],
-  "author": "Kevin Mathy",
+  "author": "John Cao",
   "bin": {
     "ngx-reduxor": "index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmathy/ngx-reduxor"
+    "url": "https://github.com/jhcao23/ngx-reduxor.git"
   },
   "scripts": {
     "release": "release-it"
   },
   "peerDependencies": {
-    "@ngrx/effects": "^5.0.1",
-    "@ngrx/entity": "^5.0.1",
-    "@ngrx/store": "^5.0.0",
-    "@ngrx/store-devtools": "^5.0.1",
-    "ngrx-store-freeze": "^0.2.1",
-    "rxjs": "^5.5.0"
+    "@ngrx/effects": "^5.2.0",
+    "@ngrx/entity": "^5.2.0",
+    "@ngrx/store": "^5.2.0",
+    "@ngrx/store-devtools": "^5.2.0",
+    "ngrx-store-freeze": "^0.2.2",
+    "rxjs": "^5.5.10"
   },
   "dependencies": {
     "fs-extra": "^5.0.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.snakecase": "^4.1.1",
-    "plop": "^1.9.1"
+    "plop": "^2.0.0"
   },
   "devDependencies": {
-    "release-it": "^6.2.0"
+    "release-it": "^7.4.0"
   }
 }
